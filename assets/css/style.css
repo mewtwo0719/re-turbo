@@ -16,6 +16,51 @@ Table of contents
 
 --------------------------------------------- */
 
+
+/*
+---------------------------------------------
+importing fonts
+---------------------------------------------
+*/
+@font-face {
+  font-family: "NexaRegular";
+  src: url(../fonts/Nexa-Font/NexaRegular.otf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "NexaHeavy";
+  src: url(../fonts/Nexa-Font/NexaHeavy.otf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "NexaBook";
+  src: url(../fonts/Nexa-Font/NexaBook.otf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "NexaBold";
+  src: url(../fonts/Nexa-Font/Nexa\ Bold.otf);
+}
+
+
+.nexaHeavy {
+  font-family: "NexaHeavy", 'Poppins', sans-serif;
+}
+
+.nexaBook {
+  font-family: "NexaBook", 'Poppins', sans-serif;
+  font-size: 18px;
+  line-height: 29px;
+}
+
+.nexaBold {
+  font-family: "NexaBold", 'Poppins', sans-serif;
+}
+
+
 /* 
 ---------------------------------------------
 global variables
@@ -27,6 +72,7 @@ global variables
   --secondary-green: #339141;
   --primary-dark: #032039;
   --secondary-dark: #032039c2;
+  --secondary-light: #BCBCBC;
 }
 
 /* 
@@ -231,6 +277,11 @@ body {
 
 @media (max-width: 991px) {
 
+  .dark-text,
+  .light-text {
+    text-align: center !important;
+  }
+
   html,
   body {
     overflow-x: hidden;
@@ -271,7 +322,7 @@ body {
   font-size: 46px;
   font-weight: 700;
   text-transform: capitalize;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .section-heading h4 em {
@@ -333,15 +384,17 @@ body {
 
 .main-button {
   display: inline-block;
-  padding: .7em 2.8em;
-  border-radius: 2px;
+  padding: .8em 3em;
   color: #fff;
   text-transform: uppercase;
-  font-weight: 600;
   transition: all 0.3s;
   position: relative;
   overflow: hidden;
   z-index: 1;
+  font-family: "NexaBold", 'Poppins', sans-serif;
+
+  font-weight: 800;
+  font-size: 20px;
 }
 
 .main-button::after {
@@ -352,7 +405,6 @@ body {
   width: 100%;
   height: 100%;
   background-color: var(--primary-green);
-  border-radius: 2px;
   z-index: -2;
 }
 
@@ -485,7 +537,15 @@ ul.social-media li a:hover {
   background: transparent;
 }
 
-.header-area .main-nav .logo {
+.header-area .main-nav .logo img,
+.footer-logo .logo img {
+  height: 100%;
+  width: 100%;
+}
+
+.header-area .main-nav .logo,
+.footer-logo .logo {
+  height: 65px;
   float: left;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
@@ -493,16 +553,19 @@ ul.social-media li a:hover {
   transition: all 0.3s ease 0s;
 }
 
-.header-area .main-nav .brand-name {
+.header-area .main-nav .brand-name,
+.footer-logo .brand-name {
   float: left;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   color: white;
-  margin-top: 20px;
   margin-left: 1em;
+  margin-top: 5px;
   vertical-align: middle;
+  height: 35px;
+
 }
 
 .header-area .main-nav .brand-name h1 span {
@@ -510,7 +573,9 @@ ul.social-media li a:hover {
 }
 
 .header-area .main-nav .logo,
-.header-area .main-nav .brand-name {
+.header-area .main-nav .brand-name,
+.footer-logo .logo,
+.footer-logo .brand-name {
   line-height: 80px;
   float: left;
   -webkit-transition: all 0.3s ease 0s;
@@ -551,6 +616,7 @@ ul.social-media li a:hover {
   display: block;
   text-transform: uppercase !important;
   font-weight: 700;
+  font-family: "NexaBold", 'Poppins', sans-serif;
   font-size: 15px;
   color: white;
   text-transform: capitalize;
@@ -559,7 +625,7 @@ ul.social-media li a:hover {
   -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   padding: 7px 13px !important;
-  border-radius: 3px;
+  border-radius: 0px;
   border: transparent;
   letter-spacing: 1px;
 }
@@ -1193,7 +1259,7 @@ Banner Style
   font-weight: 700;
   font-size: 50px;
   color: #2a2a2a;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .main-banner .left-content p {
@@ -1282,7 +1348,7 @@ About Style
 
   .about-right-content p,
   .about-left-content p {
-    text-align: left !important;
+    text-align: center;
   }
 
 }
@@ -1342,17 +1408,18 @@ Services Style
 }
 
 .section-heading h4 {
-  max-width: 400px;
+  font-family: 'NexaHeavy';
 }
 
 .dark-text {
-  color: var(--primary-dark);
+  color: #373737;
   font-size: 18px;
   margin-bottom: 2em;
 }
 
+
 .light-text {
-  color: white;
+  color: var(--secondary-light);
   font-size: 18px;
   margin-bottom: 2em;
 }
@@ -1368,21 +1435,28 @@ Services Style
   text-align: center;
 }
 
+.card img {
+  height: 210px;
+}
+
 .card .card-body .card-title {
   text-align: center;
+  margin-top: .6em;
   color: var(--primary-dark);
+  font-family: "NexaBold", 'Poppins', sans-serif;
 }
 
 .card .card-body .card-text {
-  line-height: initial;
+  line-height: 20px;
   color: var(--primary-dark);
-  font-size: 14px;
+  font-size: 13px;
   padding: .5em 1em;
+  font-family: "NexaBook", 'Poppins', sans-serif;
 }
 
 .align-card {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .card {
@@ -1428,7 +1502,6 @@ Benefits
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-
 }
 
 .benefits-header {
@@ -1455,6 +1528,7 @@ Benefits
   font-size: 18px;
   font-weight: 400;
   margin-left: 1.5em;
+  font-family: "NexaBook", 'Poppins', sans-serif;
 }
 
 .benefits-text {
@@ -1679,64 +1753,23 @@ Footer Style
 
 .footer-logo {
   display: flex;
-  transform: scale(.7);
-  height: 48px;
-  margin-top: -24px;
-  margin-bottom: 3em;
-  margin-left: -6em;
-}
-
-.footer-logo .logo {
-  float: left;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-}
-
-.footer-logo .brand-name {
-  float: left;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-  color: white;
-  margin-left: 1em;
-  margin-top: 20px;
-  vertical-align: middle;
-}
-
-
-
-.footer-logo .brand-name h1 span {
-  color: var(--primary-green);
-}
-
-.footer-logo .logo,
-.footer-logo .brand-name {
-  line-height: 80px;
-  float: left;
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
-}
-
-.footer-logo .logo,
-.footer-logo .brand-name {
-  line-height: 80px !important;
+  transform: translate(0, -50%);
+  margin-bottom: 0;
 }
 
 .footer-header {
-  margin-bottom: 1em;
-  text-transform: uppercase;
   color: white;
-  font-weight: 800;
-
+  text-transform: uppercase;
+  margin-bottom: 1em;
 }
 
+
 .nav-text {
-  color: rgb(199, 197, 197) !important;
+  color: var(--secondary-light) !important;
+}
+
+.border-top {
+  border-color: var(--secondary-light) !important;
 }
 
 .np-10 {
@@ -1759,9 +1792,11 @@ Footer Style
 
 
 @media only screen and (max-width: 1200px) {
+  /*
   .footer-logo {
     margin-left: -4em;
   }
+  */
 }
 
 @media only screen and (max-width: 992px) {
@@ -1788,9 +1823,11 @@ Footer Style
     clip-path: ellipse(200% 100% at 50% 100%);
   }
 
+  /*
   .footer-logo {
     margin-left: -6.5em;
   }
+  */
 
   .credits {
     display: flex;
@@ -1804,9 +1841,11 @@ Footer Style
 
   }
 
+  /*
   .footer-logo {
     margin-left: -5em;
   }
+  */
 
 }
 
@@ -2020,5 +2059,30 @@ responsive
 
   form#contact {
     padding: 30px;
+  }
+}
+
+/*
+------------------------------
+Style for bigger screens
+------------------------------
+*/
+
+@media only screen and (min-height: 820px) {
+  .mt-auto {
+    margin-top: 1em !important;
+  }
+
+  .benefits {
+    min-height: auto;
+    margin-bottom: 5em;
+  }
+
+  .benefits .overlay {
+    min-height: auto;
+  }
+
+  .benefits .overlay .container {
+    min-height: auto;
   }
 }
