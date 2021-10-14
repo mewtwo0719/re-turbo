@@ -32,6 +32,7 @@ function changeSelection(e){
         selectionBtn.innerHTML = "Search by Turbocharger Manufacturer";
         filterSelection = 2;
     }
+    document.getElementById('searchKeyword').innerHTML = "";
 }
 
 //filter algorithm 
