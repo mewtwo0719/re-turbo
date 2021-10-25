@@ -106,3 +106,7 @@ input[type=radio]:first-child:not(:checked)+label {
     text-align: center;
     text-justify: auto;
 }
+
+.hideRow {
+    display: none;
+}

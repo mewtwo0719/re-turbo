@@ -1,4 +1,6 @@
-//populating table from json
+/*
+************Populating data using js, will be removed later and changed with php
+*/
 
 const loadData = document.getElementById("loadData");
 for(var j = 0; j < 1; j++){
@@ -25,13 +27,13 @@ for(var i = 0; i < data.baza.length; i++){
     <td style='display:none;' class="searchTurbochargerPN" >${data.baza[i]["Turbocharger PN"]}</td>
     <td style='display:none;' class="searchCarMaker" >${data.baza[i]["CAR MAKER"]}</td>
 
-    `;
-    
-    
+    `;  
     loadData.appendChild(tr);
 }}
 
-//populating datalists
+/*
+************creating datalist, will be removed later and put into baza.js file
+*/
 
 var datalist = {
   datalistProductGroup:[
@@ -47,14 +49,15 @@ var datalist = {
     "audi", "bmw", "vw", "volvo"
   ]
 }
-
+/*
+************creating options in searchbars
+*/
 var datalistProductGroupDOM = document.getElementById("datalistProductGroup")
 for(var i = 0; i < datalist.datalistProductGroup.length; i++){
     let option = document.createElement("option");
     option.value = datalist.datalistProductGroup[i];
     datalistProductGroupDOM.appendChild(option);
 }
-
 
 var datalistBrandDOM = document.getElementById("datalistBrand")
 for(var i = 0; i < datalist.datalistBrand.length; i++){
@@ -78,15 +81,36 @@ for(var i = 0; i < datalist.datalistCarMaker.length; i++){
 }
 
 
-//Create message
+/*
+************Creating message on user click on question mark
+*/
 const allRows = document.getElementsByClassName("tableRow");
 function questionMarked(n){
-  if(allRows[n].classList.contains("activeRow")) allRows[n].classList.remove("activeRow");
-  else allRows[n].classList.add("activeRow");
+  if(allRows[n].classList.contains("activeRow")){
+    allRows[n].classList.remove("activeRow");
+    removeElem = document.getElementById(`messageIndex${n}`)
+
+    removeElem.parentNode.removeChild(removeElem);
+  } 
+  else{ allRows[n].classList.add("activeRow")
+
+  let messageQuestion = document.createElement("div");
+  messageQuestion.classList.add('form-floating')
+  messageQuestion.setAttribute('id', `messageIndex${n}`)
+  messageQuestion.classList.add('mb-3')
+  messageQuestion.innerHTML = `
+  <textarea class="form-control" placeholder="Question"
+  id="floatingTextarea"></textarea>
+  <label class="text-muted" for="floatingTextarea">${allRows[n].innerText}</label>
+ `
+ document.getElementById("form-message").appendChild(messageQuestion);
+  }
 }
 
 
-//filter algorithm 
+/*
+************Algorithm used to filter keywords
+*/
 
 var inputProductGroup = document.getElementById('searchKeywordProductGroup');
 var inputBrand = document.getElementById('searchKeywordBrand');
@@ -122,8 +146,6 @@ function filter() {
       txtValue2 = keyword2.textContent || keyword2.innerText;
       txtValue3 = keyword3.textContent || keyword3.innerText;
       txtValue4 = keyword4.textContent || keyword4.innerText;
-
-      console.log(txtValue1)
 
       if ((txtValue1.toUpperCase().indexOf(filterTurbochargerPN) > -1) && 
       (txtValue2.toUpperCase().indexOf(filterCarMaker) > -1) &&
