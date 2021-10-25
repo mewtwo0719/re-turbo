@@ -484,6 +484,7 @@ ul.social-media li a:hover {
 .background-header .logo,
 .background-header .main-nav .nav li a {
   color: #fff;
+  letter-spacing: 0;
 }
 
 .background-header .main-nav .nav li:hover a {
