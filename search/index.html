@@ -12,143 +12,44 @@
     <link rel="stylesheet" href="../assets/css/fontawesome.css">
     <script src="baza.js"></script>
     <title>RE-TURBO | Search</title>
-    <style>
-        body {
-            width: 100%;
-            height: 100vh;
-            background-color: #373b3e;
-        }
-
-        .input-group {
-            margin: 2em 0em;
-        }
-
-        input {
-            display: none;
-        }
-
-        .checkboxLabel {
-            border: 1px solid #777;
-            display: block;
-            width: 33px;
-            height: 33px;
-            text-align: center;
-            font-size: 2rem;
-            user-select: none;
-            cursor: pointer;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            border-radius: 5px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .checkboxLabel:hover {
-            background-image: linear-gradient(#eee, #ccc);
-            color: #373b3e;
-        }
-
-        input.boringbox,
-        input.boringbox+label {
-            display: inline;
-            border: none;
-            font-size: inherit;
-            padding: 0;
-        }
-
-        label>* {
-            position: absolute;
-            transition: opacity 0.2s ease;
-        }
-
-        input+label> :last-child {
-            opacity: 0;
-        }
-
-        input:checked+label> :first-child {
-            opacity: 0;
-        }
-
-        input:checked+label> :last-child {
-            opacity: 1;
-        }
-
-        input[type=radio]+label {
-            opacity: 0;
-            position: absolute;
-            pointer-events: none;
-            transition: opacity 0.2s ease;
-        }
-
-        input[type=radio]:checked+label {
-            opacity: 1;
-
-        }
-
-        input[type=radio]:checked+label+input[type=radio]+label {
-            pointer-events: auto;
-
-        }
-
-        input[type=radio]:first-child:not(:checked)+label {
-            pointer-events: auto;
-        }
-
-        .table tBody .activeRow {
-            border: 2px solid white;
-        }
-
-
-        #messageButton {
-            position: fixed;
-            bottom: 1em;
-            right: 1em;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            margin: 0;
-        }
-
-        #messageButton i {
-            font-size: 40px;
-            margin-top: -5px;
-            text-align: center;
-            text-justify: auto;
-        }
-    </style>
+    <link rel="stylesheet" href="searchStyle.css">
 </head>
 
-
-
 <body>
-
-
 
     <button type="button" id="messageButton" class="btn btn-primary" data-bs-toggle="modal"
         data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="fa fa-envelope"></i></button>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Message Us</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
+                        <div class="row g-0">
+                            <div class="form-floating mb-3 me-3 col-auto">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Name">
+                                <label class="text-muted" for="floatingInput">Name</label>
+                            </div>
+                            <div class="form-floating mb-3 me-3 col-auto">
+                                <input type="email" class="form-control" id="floatingPassword" placeholder="E-mail">
+                                <label class="text-muted" for="floatingPassword">E-mail</label>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                                style="height: 100px"></textarea>
+                            <label class="text-muted" for="floatingTextarea2">Message</label>
+                        </div>
+                        <h5 class="modal-title my-3" id="exampleModalLabel">Questions</h5>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="Leave a comment here"
+                                id="floatingTextarea"></textarea>
+                            <label class="text-muted" for="floatingTextarea">RT-0001-04-00-01 7249305009S A3 (8P1) 1968
+                                103 05.2003 / 08.2012</label>
                         </div>
                     </form>
                 </div>
